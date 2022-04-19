@@ -31,7 +31,12 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TodoTableViewCell(style: .default, reuseIdentifier: "todoCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoTableViewCell
+        let todoItem = todoList[indexPath.row]
+        
+        cell.detailsLabel.text = todoItem.details
+        cell.dueDateLabel.text = todoItem.dueDate.description
+        cell.doneSwitch.isOn = todoItem.isDone
         
         return cell
     }
