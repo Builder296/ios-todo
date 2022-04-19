@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Todo {
     let id: String = UUID().uuidString
@@ -13,10 +14,14 @@ struct Todo {
     var dueDate = Date()
     var isDone = false
     var type: TodoType = .task
+    
+    var icon: UIImage {
+        return UIImage(named: self.type.rawValue) ?? UIImage()
+    }
 }
 
-enum TodoType {
-    case task
-    case shopping
-    case activity
+enum TodoType: String {
+    case task = "task"
+    case shopping = "shopping"
+    case activity = "activity"
 }
