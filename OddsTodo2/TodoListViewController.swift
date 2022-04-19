@@ -7,15 +7,30 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController {
+class TodoListViewController: UIViewController, UITableViewDataSource {
+    
+    var todoList: [Todo] = [
+        Todo(details: "", type: .task),
+        Todo(details: "", type: .task),
+        Todo(details: "", type: .shopping),
+        Todo(details: "", type: .activity),
+        Todo(details: "", type: .task),
+    ]
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
     }
 
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }
 
