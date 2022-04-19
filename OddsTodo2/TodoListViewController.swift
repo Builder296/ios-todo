@@ -23,13 +23,17 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-
+    
+//    func numberOfSections(in tableView: UITableView) -> Int // if you have 1 session it's not necessary.
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return todoList.count // row of table
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = TodoTableViewCell(style: .default, reuseIdentifier: "todoCell")
+        
+        return cell
     }
     
 }
