@@ -15,8 +15,8 @@ struct Todo {
     var isDone = false
     var type: TodoType = .task
     
-    var icon: UIImage {
-        return UIImage(named: self.type.rawValue) ?? UIImage()
+    var icon: UIImage? {
+        return UIImage(named: self.type.rawValue)
     }
 }
 
