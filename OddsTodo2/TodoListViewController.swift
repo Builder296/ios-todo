@@ -44,6 +44,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         cell.detailsLabel.text = todoItem.details
         cell.dueDateLabel.text = todoItem.dueDate.description
         cell.doneSwitch.isOn = todoItem.isDone
+        cell.iconImageView.image = todoItem.icon
         
         return cell
     }
