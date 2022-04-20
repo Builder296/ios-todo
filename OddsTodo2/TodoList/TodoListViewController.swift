@@ -9,13 +9,15 @@ import UIKit
 
 class TodoListViewController: UIViewController, UITableViewDataSource {
     
-    var todoList: [Todo] = [
-        Todo(details: "details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1 details 1", type: .task),
-        Todo(details: "details 2", type: .task),
-        Todo(details: "details 3", type: .shopping),
-        Todo(details: "details 4", type: .activity),
-        Todo(details: "details 5", type: .task),
-    ]
+    var todoList: [Todo] {
+        get {
+            TodoStore.getAll()
+        }
+        set {
+            TodoStore.save(todoList: newValue)
+            tableView.reloadData()
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,5 +51,13 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        todoList.append(Todo(
+            details: "Test",
+            dueDate: Date(),
+            isDone: false,
+            type: .activity
+        ))
+    }
 }
 

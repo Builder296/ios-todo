@@ -88,7 +88,7 @@
                     <navigationItem key="navigationItem" title="Todo List" id="7CE-AD-GXt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5lK-an-IXg">
                             <connections>
-                                <segue destination="rOH-eD-yZn" kind="show" id="f8o-04-vX0"/>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="LFw-QZ-M42"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
