@@ -43,6 +43,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         
         let todoItem = todoList[indexPath.row]
         
+        cell.todoItem = todoItem
         cell.detailsLabel.text = todoItem.details
         cell.dueDateLabel.text = todoItem.dueDate.description
         cell.doneSwitch.isOn = todoItem.isDone

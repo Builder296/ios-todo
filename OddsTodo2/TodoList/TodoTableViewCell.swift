@@ -8,6 +8,8 @@
 import UIKit
 
 class TodoTableViewCell: UITableViewCell {
+    
+    var todoItem: Todo?
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var detailsLabel: UILabel!
@@ -16,13 +18,13 @@ class TodoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+    @IBAction func doneSwitchChanged(_ sender: Any) {
+        todoItem?.isDone = doneSwitch.isOn
+    }
 }
