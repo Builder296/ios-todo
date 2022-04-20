@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController, UITableViewDataSource {
+class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate {
     
     var todoList: [Todo] {
         get {
@@ -26,8 +26,6 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int // if you have 1 session it's not necessary.
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count // row of table
     }
@@ -43,6 +41,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         
         let todoItem = todoList[indexPath.row]
         cell.setValueFor(todoItem)
+        cell.delegate = self
         
         return cell
     }
@@ -54,6 +53,10 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
             isDone: false,
             type: .activity
         ))
+    }
+    
+    func onTodoChanged(_ todoItem: Todo?) {
+        print(todoItem!)
     }
 }
 

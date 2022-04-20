@@ -7,9 +7,16 @@
 
 import UIKit
 
+//interface
+protocol TodoTableViewCellDelegate: AnyObject {
+    func onTodoChanged(_ todoItem: Todo?)
+}
+
 class TodoTableViewCell: UITableViewCell {
     
     var todoItem: Todo?
+    
+    weak var delegate: TodoTableViewCellDelegate? // callback or send out !optional
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var detailsLabel: UILabel!
@@ -34,5 +41,6 @@ class TodoTableViewCell: UITableViewCell {
 
     @IBAction func doneSwitchChanged(_ sender: Any) {
         todoItem?.isDone = doneSwitch.isOn
+        delegate?.onTodoChanged(todoItem)
     }
 }
