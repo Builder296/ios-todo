@@ -11,7 +11,9 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     
     var todoList: [Todo] {
         get {
-            TodoStore.getAll()
+            TodoStore.getAll().sorted {
+                $0.dueDate < $1.dueDate
+            }
         }
         set {
             TodoStore.save(todoList: newValue)
@@ -56,7 +58,13 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     }
     
     func onTodoChanged(_ todoItem: Todo?) {
-        print(todoItem!)
+        if let item = todoItem {
+            var newTodoList = todoList.filter {
+                $0.id != item.id
+            }
+            newTodoList.append(item)
+            todoList = newTodoList
+        }
     }
 }
 
