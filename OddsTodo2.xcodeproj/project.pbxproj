@@ -41,6 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A4CE006280EC4F90034C65F /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				5AC1445A280E7367009CCBD7 /* TodoListViewController.swift */,
+				5A4CE002280EAE420034C65F /* TodoTableViewCell.swift */,
+				5A4CE004280EB0D90034C65F /* Todo.swift */,
+			);
+			path = TodoList;
+			sourceTree = "<group>";
+		};
 		5AC1444A280E7367009CCBD7 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +72,11 @@
 			children = (
 				5AC14456280E7367009CCBD7 /* AppDelegate.swift */,
 				5AC14458280E7367009CCBD7 /* SceneDelegate.swift */,
-				5AC1445A280E7367009CCBD7 /* TodoListViewController.swift */,
-				5A4CE004280EB0D90034C65F /* Todo.swift */,
 				5AC1445C280E7367009CCBD7 /* Main.storyboard */,
+				5A4CE006280EC4F90034C65F /* TodoList */,
 				5AC1445F280E7368009CCBD7 /* Assets.xcassets */,
 				5AC14461280E7368009CCBD7 /* LaunchScreen.storyboard */,
 				5AC14464280E7368009CCBD7 /* Info.plist */,
-				5A4CE002280EAE420034C65F /* TodoTableViewCell.swift */,
 			);
 			path = OddsTodo2;
 			sourceTree = "<group>";
