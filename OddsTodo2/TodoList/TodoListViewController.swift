@@ -50,7 +50,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     
     @IBAction func addButtonTapped(_ sender: Any) {
         todoList.append(Todo(
-            details: "Test",
+            details: "Test \(todoList.count + 1)",
             dueDate: Date(),
             isDone: false,
             type: .activity
@@ -61,7 +61,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
         if let item = todoItem {
             var newTodoList = todoList.filter {
                 $0.id != item.id
-            }
+            } // filter out
             newTodoList.append(item)
             todoList = newTodoList
         }
