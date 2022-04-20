@@ -10,11 +10,11 @@ import UIKit
 class TodoListViewController: UIViewController, UITableViewDataSource {
     
     var todoList: [Todo] = [
-        Todo(details: "", type: .task),
-        Todo(details: "", type: .task),
-        Todo(details: "", type: .shopping),
-        Todo(details: "", type: .activity),
-        Todo(details: "", type: .task),
+        Todo(details: "details 1", type: .task),
+        Todo(details: "details 2", type: .task),
+        Todo(details: "details 3", type: .shopping),
+        Todo(details: "details 4", type: .activity),
+        Todo(details: "details 5", type: .task),
     ]
 
     @IBOutlet weak var tableView: UITableView!
