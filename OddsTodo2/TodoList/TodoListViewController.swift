@@ -9,7 +9,7 @@ import UIKit
 
 class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate {
     
-    var todoList: [Todo] {
+    var todoList: OddsTodo {
         get {
             TodoStore.getAll().sorted {
                 $0.dueDate < $1.dueDate

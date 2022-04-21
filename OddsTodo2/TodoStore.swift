@@ -7,15 +7,17 @@
 
 import Foundation
 
+typealias OddsTodo = [Todo]
+
 // save data tempolary
 class TodoStore {
-    private static var todoList: [Todo] = []
+    private static var todoList: OddsTodo = []
     
-    static func getAll() -> [Todo] {
+    static func getAll() -> OddsTodo {
         return todoList
     }
     
-    static func save(todoList: [Todo]) {
+    static func save(todoList: OddsTodo) {
         self.todoList = todoList
     }
 }
