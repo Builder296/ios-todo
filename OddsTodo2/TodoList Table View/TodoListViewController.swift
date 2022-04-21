@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TodoItemCreateDelegate {
+protocol TodoItemCreateDelegate: AnyObject {
     func onTodoItemCreate(_ todoItem: Todo?)
 }
 
@@ -52,6 +52,11 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let todoItem = todoList[indexPath.row]
+        navigateToTodoItemViewController(todoItem)
+    }
+    
     @IBAction func addButtonTapped(_ sender: Any) {
 //        todoList.append(Todo(
 //            details: "Test \(todoList.count + 1)",
@@ -59,7 +64,10 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
 //            isDone: false,
 //            type: .activity
 //        ))
-        
+        navigateToTodoItemViewController(nil)
+    }
+    
+    func navigateToTodoItemViewController(_ todoItem: Todo?) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "todoItemScene")
         if let todoItemVC = viewController as? TodoItemTableViewController {
             navigationController?.pushViewController(todoItemVC, animated: true)

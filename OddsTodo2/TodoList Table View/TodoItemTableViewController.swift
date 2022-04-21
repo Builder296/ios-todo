@@ -11,6 +11,8 @@ class TodoItemTableViewController: UITableViewController {
 
     var todoItem: Todo?
     
+    weak var delegate: TodoItemCreateDelegate?
+    
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var dueDatePickerView: UIDatePicker!
     @IBOutlet weak var isDoneSwitch: UISwitch!
@@ -18,6 +20,12 @@ class TodoItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        //TODO: create or update todo item
+        
+        delegate?.onTodoItemCreate(nil)
     }
 
     /*
