@@ -59,10 +59,6 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     
     func onTodoChanged(_ todoItem: Todo?) {
         if let item = todoItem {
-            var newTodoList = todoList.filter {
-                $0.id != item.id
-            } // filter out
-            newTodoList.append(item)
             todoList = todoList.update(item)
         }
     }
