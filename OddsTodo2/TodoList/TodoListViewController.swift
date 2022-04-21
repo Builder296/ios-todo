@@ -63,7 +63,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
                 $0.id != item.id
             } // filter out
             newTodoList.append(item)
-            todoList = newTodoList
+            todoList = todoList.update(item)
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A47CB6A2811502800C58C8B /* OddsTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A47CB692811502800C58C8B /* OddsTodo.swift */; };
 		5A4CE003280EAE420034C65F /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CE002280EAE420034C65F /* TodoTableViewCell.swift */; };
 		5A4CE005280EB0D90034C65F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CE004280EB0D90034C65F /* Todo.swift */; };
 		5AC14457280E7367009CCBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC14456280E7367009CCBD7 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A47CB692811502800C58C8B /* OddsTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddsTodo.swift; sourceTree = "<group>"; };
 		5A4CE002280EAE420034C65F /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		5A4CE004280EB0D90034C65F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		5AC14453280E7367009CCBD7 /* OddsTodo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddsTodo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				5AC14461280E7368009CCBD7 /* LaunchScreen.storyboard */,
 				5AC14464280E7368009CCBD7 /* Info.plist */,
 				5AD1F0B428100D9200F06656 /* TodoStore.swift */,
+				5A47CB692811502800C58C8B /* OddsTodo.swift */,
 			);
 			path = OddsTodo2;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				5AC1445B280E7367009CCBD7 /* TodoListViewController.swift in Sources */,
 				5AC14457280E7367009CCBD7 /* AppDelegate.swift in Sources */,
+				5A47CB6A2811502800C58C8B /* OddsTodo.swift in Sources */,
 				5AC14459280E7367009CCBD7 /* SceneDelegate.swift in Sources */,
 				5A4CE003280EAE420034C65F /* TodoTableViewCell.swift in Sources */,
 				5A4CE005280EB0D90034C65F /* Todo.swift in Sources */,

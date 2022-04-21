@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias OddsTodo = [Todo]
-
 // save data tempolary
 class TodoStore {
     private static var todoList: OddsTodo = []
