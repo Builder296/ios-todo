@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TodoItemCreateDelegate {
+    func onTodoItemCreate(_ todoItem: Todo?)
+}
+
 class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate {
     
     var todoList: OddsTodo {
@@ -49,12 +53,17 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        todoList.append(Todo(
-            details: "Test \(todoList.count + 1)",
-            dueDate: Date(),
-            isDone: false,
-            type: .activity
-        ))
+//        todoList.append(Todo(
+//            details: "Test \(todoList.count + 1)",
+//            dueDate: Date(),
+//            isDone: false,
+//            type: .activity
+//        ))
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "todoItemScene")
+        if let todoItemVC = viewController as? TodoItemTableViewController {
+            navigationController?.pushViewController(todoItemVC, animated: true)
+        }
     }
     
     func onTodoChanged(_ todoItem: Todo?) {
