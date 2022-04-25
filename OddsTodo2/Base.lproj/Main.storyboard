@@ -179,7 +179,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-5x-HOk">
-                                                    <rect key="frame" x="99" y="6" width="295" height="32"/>
+                                                    <rect key="frame" x="99" y="6" width="295" height="31.5"/>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

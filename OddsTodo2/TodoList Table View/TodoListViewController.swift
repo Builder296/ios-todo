@@ -11,7 +11,7 @@ protocol TodoItemCreateDelegate: AnyObject {
     func onTodoItemCreate(_ todoItem: Todo?)
 }
 
-class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate {
+class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate, TodoItemCreateDelegate {
     
     var todoList: OddsTodo {
         get {
@@ -70,6 +70,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     func navigateToTodoItemViewController(_ todoItem: Todo?) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "todoItemScene")
         if let todoItemVC = viewController as? TodoItemTableViewController {
+            todoItemVC.delegate = self
             navigationController?.pushViewController(todoItemVC, animated: true)
         }
     }
@@ -77,6 +78,12 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     func onTodoChanged(_ todoItem: Todo?) {
         if let item = todoItem {
             todoList = todoList.update(item)
+        }
+    }
+    
+    func onTodoItemCreate(_ todoItem: Todo?) {
+        if let item = todoItem {
+            todoList.append(item)
         }
     }
 }

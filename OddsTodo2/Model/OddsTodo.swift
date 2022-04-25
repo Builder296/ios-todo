@@ -20,4 +20,10 @@ extension OddsTodo {
         newTodoList.append(todo)
         return newTodoList
     }
+    
+    func save(_ todo: Todo) -> OddsTodo {
+        var newTodoList = self // filter out
+        newTodoList.append(todo)
+        return newTodoList
+    }
 }

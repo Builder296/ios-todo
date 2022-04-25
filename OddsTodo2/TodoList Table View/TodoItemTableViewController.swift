@@ -19,13 +19,20 @@ class TodoItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         //TODO: create or update todo item
+        todoItem = Todo()
+        todoItem?.details = detailTextView.text
+        todoItem?.dueDate = dueDatePickerView.date
+        todoItem?.isDone = isDoneSwitch.isOn
         
-        delegate?.onTodoItemCreate(nil)
+        if let newTodo = todoItem {
+            delegate?.onTodoItemCreate(newTodo)
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
 
     /*
