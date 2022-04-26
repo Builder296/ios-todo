@@ -9,6 +9,8 @@ import UIKit
 
 class TodoItemTableViewController: UITableViewController {
 
+    // nil -> new
+    // not nil -> edit
     var todoItem: Todo?
     
     weak var delegate: TodoItemCreateDelegate?
@@ -23,13 +25,17 @@ class TodoItemTableViewController: UITableViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         //TODO: create or update todo item
-        todoItem = Todo()
-        todoItem?.details = detailTextView.text
-        todoItem?.dueDate = dueDatePickerView.date
-        todoItem?.isDone = isDoneSwitch.isOn
+        if todoItem == nil {
+            todoItem = Todo()
+        }
         
-        if let newTodo = todoItem {
-            delegate?.onTodoItemCreate(newTodo)
+        if var updateItem = todoItem,
+           let delegate = delegate {
+            updateItem.details = detailTextView.text
+            updateItem.dueDate = dueDatePickerView.date
+            updateItem.isDone = isDoneSwitch.isOn
+            
+            delegate.onTodoItemCreate(updateItem)
         }
         
         navigationController?.popViewController(animated: true)
