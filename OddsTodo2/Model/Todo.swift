@@ -24,4 +24,18 @@ enum TodoType: String {
     case task = "task"
     case shopping = "shopping"
     case activity = "activity"
+    
+    static var allItems: [TodoType] {
+        return [.task, .shopping, .activity]
+    }
+
+    var description: String {
+        switch self {
+        case .task: return "Task"
+        case .shopping: return "Shopping"
+        case .activity: return "Activity"
+        }
+        
+        // TodoType.allItems[0].description
+    }
 }
