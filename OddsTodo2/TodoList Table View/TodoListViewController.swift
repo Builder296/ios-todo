@@ -11,7 +11,7 @@ protocol TodoItemCreateDelegate: AnyObject {
     func onTodoItemCreate(_ todoItem: Todo?)
 }
 
-class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate, TodoItemCreateDelegate {
+class TodoListViewController: UIViewController, UITableViewDataSource, TodoTableViewCellDelegate, TodoItemCreateDelegate, UITableViewDelegate {
     
     var todoList: OddsTodo {
         get {
@@ -30,33 +30,9 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoList.count // row of table
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "todoCell",
-                for: indexPath) as? TodoTableViewCell
-        else {
-            return UITableViewCell()
-        }
-        
-        let todoItem = todoList[indexPath.row]
-        cell.setValueFor(todoItem)
-        cell.delegate = self
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let todoItem = todoList[indexPath.row]
-        navigateToTodoItemViewController(todoItem)
-    }
-    
+
     @IBAction func addButtonTapped(_ sender: Any) {
 //        todoList.append(Todo(
 //            details: "Test \(todoList.count + 1)",
@@ -86,5 +62,34 @@ class TodoListViewController: UIViewController, UITableViewDataSource, TodoTable
             todoList.append(item)
         }
     }
+}
+
+
+extension TodoListViewController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return todoList.count // row of table
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "todoCell",
+                for: indexPath) as? TodoTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        let todoItem = todoList[indexPath.row]
+        cell.setValueFor(todoItem)
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let todoItem = todoList[indexPath.row]
+        navigateToTodoItemViewController(todoItem)
+    }
+    
 }
 
